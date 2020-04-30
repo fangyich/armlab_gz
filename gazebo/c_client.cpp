@@ -322,18 +322,11 @@ class TCPServer
 };
 
 
-/////////////////////////////////////////////////
 int main (int _argc, char **_argv)
 {
-    int service_port = std::stoi(_argv[1]);
-//    int request_port = std::stoi(_argv[2]);
-//    
+    int service_port = std::stoi(_argv[1]);  
     // open the port
 	boost::asio::io_service io_service;  // to client
-//    //  boost::asio::io_service io_feedback; // from client 
-//	tcp::acceptor acceptor(io_service, tcp::endpoint(tcp::v4(), service_port));
-//    // tcp::endpoint ep(tcp::v4(), feedback_port);
-	// Register the interrupts
     boost::asio::signal_set signal_set(io_service, SIGTERM, SIGINT);
     signal_set.async_wait(
         [&io_service](
@@ -347,90 +340,13 @@ int main (int _argc, char **_argv)
     );        
     // Load gazebo as a client
     gazebo::client::setup();
-//  
+
     // Create our node for communication
     gazebo::transport::NodePtr node(new gazebo::transport::Node());
     node->Init();
-//    // Publish joint command
-//    gazebo::transport::PublisherPtr pub =
-//        node->Advertise<rexarm_poses_msgs::msgs::RexarmPoses>("~/workspace/rexarm/joint_cmd");
-//  
-//    // Subscribe to the status topic
-//    gazebo::transport::SubscriberPtr sub = 
-//        node->Subscribe("~/workspace/rexarm/poses", UpdateJointPos);
-    // Wait for a subscriber to connect to this publisher
-    // pub->WaitForConnection();
-//	
-//    // handle interrupts
-//    s_catch_signals();
-//
-
-//
-//
-//	try
-//    {
-//	    // for loop for sending the joint commands to the gazebo server (plugin)
-//		for (;;)
-//		{
-//			// creates a socket
-//		    tcp::socket socket(io_service);
-//
-//
-//			// wait and listen
-//			acceptor.accept(socket);
-//
-//			// process the receiving data
-//			boost::asio::streambuf request;
-//			boost::asio::read_until(socket, request, '\n');
-//			std::string joint_cmd = boost::asio::buffer_cast<const char*>(request.data());
-//			
-//            std::vector<double> joints;
-//            std::stringstream s_joints(joint_cmd);
-//            std::string tmp;
-//            while(getline(s_joints, tmp, ','))
-//            {
-//                joints.push_back(std::stod(tmp));
-//                std::cout << tmp << std::endl;
-//            }
-//
-//            std::cout << "================" << std::endl;
-//           
-//			// Create a command message
-//            rexarm_poses_msgs::msgs::RexarmPoses cmd;
-//            cmd.set_base_joint_pos(joints[0]);
-//            cmd.set_shoulder_joint_pos(joints[1]);
-//            cmd.set_elbow_joint_pos(joints[2]);
-//            cmd.set_wrist_joint_pos(joints[3]);
-//
-//            // Send the message
-//			pub->Publish(cmd);
-//
-//			if (s_interrupted)
-//            {
-//                 boost::system::error_code ec; 
-//                 socket.close(ec);
-//                 if (ec)
-//                 {
-//                    std::cerr << "Error occurs while closing the socket!" << std::endl;
-//                    return -1;
-//                 }
-//                 else
-//                     break;
-//            }
-//		}    
-//    }
-//    
-//    catch (std::exception& e)
-//    {
-//		std::cerr << e.what() << std::endl;
-//  		gazebo::client::shutdown();
-//    }
-//
-//:    std::cout << "Client is closed." << std::endl;
     try
     {
         // Start the client 
-        //TCPClient client(request_port, io_service, node);
         GzState states(node);
         // Start the server
         TCPServer server(service_port, io_service, node, states);
@@ -447,7 +363,6 @@ int main (int _argc, char **_argv)
     {
         std::cerr << e.what() << std::endl;
     }
-
 
     return 0; 
 }

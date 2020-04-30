@@ -128,8 +128,6 @@ namespace gazebo
                         this->parent->InsertModelSDF(this->cubeSDF);
                         
                         // Record the newly generated cube's id
-                        //this->cubeSDF.PrintValues();
-                        //std::cout << "get cube command" << std::endl;
                         this->cube_id.push_back(new_id);
                         break;    
                 }
