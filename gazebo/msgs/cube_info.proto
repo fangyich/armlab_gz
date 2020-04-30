@@ -1,0 +1,9 @@
+syntax = "proto2";
+package cube_info_msgs.msgs;
+import "pose.proto";
+
+message CubeInfo
+{
+    required string			   id		   =  1;
+	required gazebo.msgs.Pose  cube_pose   =  2;
+}

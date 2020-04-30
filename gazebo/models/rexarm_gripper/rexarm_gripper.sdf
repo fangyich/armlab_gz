@@ -1,0 +1,20 @@
+<?xml version='1.0' ?> 
+<sdf version='1.5'>   
+<model name='rexarm_gripper'>
+	<include>
+		<uri>model://rexarm</uri>
+	</include>
+
+	<include>
+		<uri>model://gripper</uri>
+		<pose>0 0.04 0.38 1.5708 0 1.5708</pose>
+	</include>
+
+	<!-- Attach gripper to the arm -->
+	<joint type='fixed' name='attach_joint'>
+		<pose>0 -0.031 0 0 0 0</pose>
+		<parent>rexarm::wrist</parent>
+		<child>gripper::gp_wrist</child>
+	</joint>
+</model>
+</sdf>

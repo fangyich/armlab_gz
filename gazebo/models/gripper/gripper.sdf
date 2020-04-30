@@ -1,0 +1,357 @@
+<?xml version='1.0' ?> 
+<sdf version='1.5'>   
+<model name='gripper'>
+		<link name='gp_base'>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+           <mass>0.01</mass>
+            <inertia>
+                <ixx>1.8869e-06</ixx>
+                <ixy>-4.7651e-09</ixy>
+                <ixz>2.5e-13</ixz>
+                <iyy>2.1174e-06</iyy>
+                <iyz>1.4168e-09</iyz>
+                <izz>7.1428e-07</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_base.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_base.dae</uri></mesh>
+            </geometry>
+        </visual>
+				<gravity>0</gravity>
+		</link>
+		<link name='gp_link_inner1'>
+        <pose>0.017 0 -0.023 0 2.09439 0</pose>
+        <inertial>
+            <mass>0.01</mass>
+            <inertia>
+                <ixx>8.172282e-7</ixx>
+                <ixy>0</ixy>
+                <ixz>-9.63323e-8</ixz>
+                <iyy>2.967633e-7</iyy>
+                <iyz>0</iyz>
+                <izz>7.395451e-7</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_link_inner.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_link_inner.dae</uri></mesh>
+            </geometry>
+        </visual>
+				<gravity>0</gravity>
+		</link>
+		<link name='gp_link_outter1'>
+        <pose>0.0107 0 -0.048 0 2.09439 0</pose>
+        <inertial>
+            <mass>0.01</mass>
+            <inertia>
+                <ixx>8.172282e-7</ixx>
+                <ixy>0</ixy>
+                <ixz>-9.63323e-8</ixz>
+                <iyy>2.967633e-7</iyy>
+                <iyz>0</iyz>
+                <izz>7.395451e-7</izz>
+						</inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_link_outter.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_link_outter.dae</uri></mesh>
+            </geometry>
+        </visual>
+				<gravity>0</gravity>
+		</link>
+		<link name='gp_finger1'>
+        <pose>0.0554 0 -0.0473 0 0 0</pose>
+        <inertial>
+            <mass>0.005</mass>
+            <inertia>
+                <ixx>1.5229525e-7</ixx>
+                <ixy>1.21593e-9</ixy>
+                <ixz>-3.432709e-8</ixz>
+                <iyy>1.40180695e-6</iyy>
+                <iyz>1.854e-11</iyz>
+                <izz>1.42294662e-6</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_finger.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_finger.dae</uri></mesh>
+            </geometry>
+        </visual>
+				<self_collide>1</self_collide>
+				<gravity>0</gravity>
+		</link>
+		<link name='gp_link_inner2'>
+        <pose>0.017 0 0.023 0 0 0</pose>
+        <inertial>
+            <mass>0.01</mass>
+            <inertia>
+                <ixx>8.172282e-7</ixx>
+                <ixy>0</ixy>
+                <ixz>-9.63323e-8</ixz>
+                <iyy>2.967633e-7</iyy>
+                <iyz>0</iyz>
+                <izz>7.395451e-7</izz>
+						</inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_link_inner.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_link_inner.dae</uri></mesh>
+            </geometry>
+        </visual>
+				<gravity>0</gravity>
+		</link>
+		<link name='gp_link_outter2'>
+        <pose>0.0107 0 0.048 0 0 0</pose>
+        <inertial>
+             <mass>0.01</mass>
+            <inertia>
+                <ixx>8.172282e-7</ixx>
+                <ixy>0</ixy>
+                <ixz>-9.63323e-8</ixz>
+                <iyy>2.967633e-7</iyy>
+                <iyz>0</iyz>
+                <izz>7.395451e-7</izz>
+						</inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_link_outter.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_link_outter.dae</uri></mesh>
+            </geometry>
+        </visual>
+				<gravity>0</gravity>
+		</link>
+		<link name='gp_finger2'>
+        <pose>0.0575 0 0.046 3.1415 0 0</pose>
+        <inertial>
+            <mass>0.005</mass>
+            <inertia>
+                <ixx>1.5229525e-7</ixx>
+                <ixy>1.21593e-9</ixy>
+                <ixz>-3.432709e-8</ixz>
+                <iyy>1.40180695e-6</iyy>
+                <iyz>1.854e-11</iyz>
+                <izz>1.42294662e-6</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_finger.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/gp_finger.dae</uri></mesh>
+            </geometry>
+        </visual>
+				<self_collide>1</self_collide>
+				<gravity>0</gravity>
+		</link>
+		<link name='gp_wrist'>
+        <pose>-4.15e-2 0 0 0 1.5708 0</pose>
+        <inertial>
+            <mass>0.075</mass>
+            <inertia>
+                <ixx>2.2649e-05</ixx>
+                <ixy>3.6778e-08</ixy>
+                <ixz>-2.1305e-07</ixz>
+                <iyy>1.2868e-05</iyy>
+                <iyz>-1.1145e-06</iyz>
+                <izz>1.77331e-05</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/AX_12A.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://gripper/meshes/AX_12A.dae</uri></mesh>
+            </geometry>
+        </visual>
+				<gravity>0</gravity>
+		</link>
+		<joint type='revolute' name='joint1_1a'>
+        <pose>-5.2e-3 0 -8.5e-3 0 0 0</pose>
+        <parent>gp_base</parent>
+        <child>gp_link_inner1</child>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-0.4</lower>
+                <upper>0</upper> 
+                <velocity>0.0298</velocity>
+            </limit>
+			<use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    	</joint>
+		<joint type='fixed' name='joint1_1b'>
+        <pose>-3.25e-2 0 1.15e-2 0 0 0</pose>
+        <parent>gp_link_inner1</parent>
+        <child>gp_finger1</child>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper> 
+                <velocity>0.0298</velocity>
+            </limit>
+			<use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    </joint>
+		<joint type='fixed' name='joint1_2b'>
+        <pose>-3.95e-2 0 -1.172e-2 0 0 0</pose>
+        <parent>gp_link_outter1</parent>
+        <child>gp_finger1</child>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper> 
+                <velocity>0.0298</velocity>
+            </limit>
+			<use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    </joint>
+		<joint type='revolute' name='joint2_1a'>
+        <pose>-5.2e-3 0 -8.5e-3 0 0 0</pose>
+        <parent>gp_base</parent>
+        <child>gp_link_inner2</child>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>0</lower>
+                <upper>0.4</upper> 
+                <velocity>0.0298</velocity>
+            </limit>
+				<use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    	</joint>
+		<joint type='fixed' name='joint2_1b'>
+        <pose>-3.25e-2 0 1.15e-2 3.1415 0 0</pose>
+        <parent>gp_link_inner2</parent>
+        <child>gp_finger2</child>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper> 
+                <velocity>0.0298</velocity>
+            </limit>
+			<use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    </joint>
+		<joint type='fixed' name='joint2_2b'>
+        <pose>-4e-2 0 -1.178e-2 0 0 0</pose>
+        <parent>gp_link_outter2</parent>
+        <child>gp_finger2</child>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper> 
+                <velocity>0.0298</velocity>
+            </limit>
+			<use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    </joint>
+		<joint type='revolute' name='wrist_joint'>
+        <pose>-2e-2 0 0 0 0 0</pose>
+        <parent>gp_wrist</parent>
+        <child>gp_base</child>
+        <axis>
+            <xyz>1 0 0</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper> 
+                <velocity>0.0298</velocity>
+            </limit>
+			<use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    </joint>
+		<gripper name='four_bar_gp'> 
+				<grasp_check>
+						<detach_steps>40</detach_steps>
+						<attach_steps>20</attach_steps>
+						<min_contact_count>2</min_contact_count>
+				</grasp_check>
+
+				<gripper_link>gripper::gp_finger1</gripper_link>
+				<gripper_link>gripper::gp_finger2</gripper_link>
+
+				<palm_link>gripper::gp_base</palm_link>
+				<palm_link>gripper::gp_wrist</palm_link>
+				<palm_link>gripper::gp_link_inner1</palm_link>
+				<palm_link>gripper::gp_link_outter1</palm_link>
+				<palm_link>gripper::gp_link_inner2</palm_link>
+				<palm_link>gripper::gp_link_outter2</palm_link>	
+		</gripper>
+</model>
+</sdf>

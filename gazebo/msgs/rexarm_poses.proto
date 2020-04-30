@@ -1,0 +1,14 @@
+syntax = "proto2";
+package rexarm_poses_msgs.msgs;
+import "pose.proto";
+
+message RexarmPoses
+{
+    optional gazebo.msgs.Pose  end_effector_pose   =  1;
+    required double            base_joint_pos      =  2;
+    required double            shoulder_joint_pos  =  3;
+    required double            elbow_joint_pos     =  4;
+    required double            wrist_joint_pos     =  5;
+    optional double            gp1_joint_pos       =  6;
+    optional double            gp2_joint_pos       =  7;
+}

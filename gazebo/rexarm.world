@@ -1,0 +1,80 @@
+<?xml version='1.0' ?> 
+<sdf version='1.5'>
+<world name='default'> 
+    <!-- A global light source -->
+    <include>
+        <uri>model://sun</uri>
+    </include>
+    
+    <!-- A ground plane -->
+    <include>
+        <uri>model://ground_with_visual_plugin</uri>
+    </include>
+
+    <!-- Kinect -->
+    <include>
+        <uri>model://camera_kinect</uri>
+    </include>
+
+    <!--World plugins -->
+    <plugin name="cubefactory_plugin" filename="libcubefactory_plugin.so"/>
+
+    <!-- Define the rexarm workspace -->
+    <model name='workspace'>
+        <!-- Import the rexarm model -->
+        <include>
+            <uri>model://rexarm_gripper</uri>
+        </include>
+
+        <!-- Rexarm model plugin -->
+        <plugin name='rexarm_plugin' filename="librexarm_plugin.so"/>
+    
+        <!-- Attach the arm to the ground -->
+        <joint type='fixed' name='ground_joint'>
+            <pose>0 0 -0.0542 0 0 0</pose>
+            <parent>world</parent>
+            <child>rexarm_gripper::rexarm::base</child>
+        </joint>
+
+        <!-- Define a virtual link for the end-effector -->
+        <link name='end_effector'>
+            <pose>0 0.12 0.38 0 0 0</pose>
+            <inertial>
+                <mass>1e-3</mass>
+                <inertia>
+                    <ixx>1e-9</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>1e-9</iyy>
+                    <iyz>0</iyz>
+                    <izz>1e-9</izz>
+                </inertia>
+            </inertial>
+            <collision name='collision'>
+                <geometry>
+                    <cylinder>
+                        <radius>10e-10</radius>
+                        <length>10e-10</length>
+                    </cylinder>
+                 </geometry>
+            </collision>
+            <visual name='visual'>
+                <geometry>
+                    <cylinder>
+                        <radius>10e-10</radius>
+                        <length>10e-10</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+            <gravity>0</gravity>
+        </link>
+
+        <!-- Attach the end_effector to the arm -->
+        <joint type='fixed' name='v_tip_joint'>
+            <pose>0 0 0 0 0 0</pose>
+            <parent>rexarm_gripper::gripper::gp_base</parent>
+            <child>end_effector</child>
+        </joint>
+    </model>
+</world>
+</sdf>

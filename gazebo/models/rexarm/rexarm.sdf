@@ -1,0 +1,205 @@
+<?xml version='1.0' ?> 
+<sdf version='1.5'>   
+<model name='rexarm'>
+    <link name='base'>
+        <pose>0 0 0.0542 0 0 0</pose>
+        <inertial>
+            <mass>0.075</mass>
+            <inertia>
+                <ixx>2.2649e-05</ixx>
+                <ixy>3.6778e-08</ixy>
+                <ixz>-2.1305e-07</ixz>
+                <iyy>1.2868e-05</iyy>
+                <iyz>-1.1145e-06</iyz>
+                <izz>1.77331e-05</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/base.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/base.dae</uri></mesh>
+            </geometry>
+        </visual>
+		<gravity>0</gravity>
+    </link>
+    <link name='shoulder1'>
+        <pose>0 0 0.1112 1.5708 0 1.5708</pose>
+        <inertial>
+            <mass>0.075</mass>
+            <inertia>
+                <ixx>2.2649e-05</ixx>
+                <ixy>3.6778e-08</ixy>
+                <ixz>-2.1305e-07</ixz>
+                <iyy>1.2868e-05</iyy>
+                <iyz>-1.1145e-06</iyz>
+                <izz>1.77331e-05</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/shoulder1.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/shoulder1.dae</uri></mesh>
+            </geometry>
+        </visual>
+		<gravity>0</gravity>
+    </link>
+    <link name='shoulder2'>
+        <pose>0 0 0.2117 1.5708 0 1.5708</pose>
+        <inertial>
+            <mass>0.075</mass>
+            <inertia>
+                <ixx>2.2649e-05</ixx>
+                <ixy>3.6778e-08</ixy>
+                <ixz>-2.1305e-07</ixz>
+                <iyy>1.2868e-05</iyy>
+                <iyz>-1.1145e-06</iyz>
+                <izz>1.77331e-05</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/shoulder2.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/shoulder2.dae</uri></mesh>
+            </geometry>
+        </visual>
+		<gravity>0</gravity>
+    </link>
+    <link name='elbow'>
+        <pose>0 0 0.3117 1.5708 0 1.5708</pose>
+        <inertial>
+            <mass>0.075</mass>
+            <inertia>
+                <ixx>2.2649e-05</ixx>
+                <ixy>3.6778e-08</ixy>
+                <ixz>-2.1305e-07</ixz>
+                <iyy>1.2868e-05</iyy>
+                <iyz>-1.1145e-06</iyz>
+                <izz>1.77331e-05</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/elbow.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/elbow.dae</uri></mesh>
+            </geometry>
+        </visual>
+		<gravity>0</gravity>
+    </link>
+    <link name='wrist'>
+        <pose>0 0 0.3117 1.5708 0 1.5708</pose>
+        <inertial>
+            <mass>10e-10</mass>
+            <inertia>
+                <ixx>1</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>1</iyy>
+                <iyz>0</iyz>
+                <izz>1</izz>
+            </inertia>
+        </inertial>
+        <collision name='collision'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/wrist.dae</uri></mesh>
+            </geometry>
+        </collision>
+        <visual name='visual'>
+            <geometry>
+                <mesh><uri>model://rexarm/meshes/wrist.dae</uri></mesh>
+            </geometry>
+        </visual>
+		<gravity>0</gravity>
+    </link>
+    <joint type='revolute' name='base_joint'>
+        <pose>0 -0.039 0 0 0 0</pose>
+        <parent>base</parent>
+        <child>shoulder1</child>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+                <effort>0.5</effort>
+                <velocity>5.76</velocity>
+            </limit>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.5</max_force>
+            </ode>
+        </physics>
+    </joint>
+    <joint type='revolute' name='shoulder_joint'>
+        <pose>0 -0.1005 0 0 0 0</pose>
+        <parent>shoulder1</parent>
+        <child>shoulder2</child>
+        <axis>
+            <xyz>0 0 1</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+                <effort>0.5</effort>
+                <velocity>5.76</velocity>
+            </limit>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.5</max_force>
+            </ode>
+        </physics>
+    </joint>
+    <joint type='revolute' name='elbow_joint'>
+        <pose>0 -0.1 0 0 0 0</pose>
+        <parent>shoulder2</parent>
+        <child>elbow</child>
+        <axis>
+            <xyz>0 0 1</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper> 
+                <effort>0.3</effort>
+                <velocity>5.76</velocity>
+            </limit>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    </joint>
+    <joint type='revolute' name='wrist_joint'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>elbow</parent>
+        <child>wrist</child>
+        <axis>
+            <xyz>0 0 1</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper> 
+                <velocity>0.0298</velocity>
+            </limit>
+        </axis>
+        <physics>
+            <ode>
+                <max_force>0.3</max_force>
+            </ode>
+        </physics>
+    </joint>
+</model>
+</sdf>
